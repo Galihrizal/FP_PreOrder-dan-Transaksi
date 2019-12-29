@@ -19,11 +19,11 @@ namespace Transaksi_PreOrder.Model.Repository
             _conn = context.Conn;
         }
 
-        public int Create(Pembelian pembelian)
+        public int Create (Pembelian pembelian )
         {
             int result = 0;
 
-            string sql = @"insert into pembelian (kd_pembelian, TglPembelian, NamaBarang, HargaBeli, kdProdusen, kdBarang, kdPesanan, kdAdmin) values
+        string sql = @"insert into pembelian (kd_pembelian, TglPembelian, NamaBarang, HargaBeli, kdProdusen, kdBarang, kdPesanan, kdAdmin) values
         (@kd_pembelian, @TglPembelian, @NamaBarang, @HargaBeli, @kdProdusen, @kdBarang, @kdPesanan, @kdAdmin)";
 
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
@@ -41,7 +41,7 @@ namespace Transaksi_PreOrder.Model.Repository
                 {
                     result = cmd.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     System.Diagnostics.Debug.Print("Create error : {0}", ex.Message);
                 }
@@ -63,7 +63,7 @@ namespace Transaksi_PreOrder.Model.Repository
                 {
                     using (MySqlDataReader dtr = cmd.ExecuteReader())
                     {
-                        while (dtr.Read())
+                        while(dtr.Read())
                         {
                             Pembelian pmb = new Pembelian();
 

@@ -16,12 +16,12 @@ namespace Transaksi_PreOrder.Controller
         // CRUD
         private PembelianRepository _repository;
 
-        public int Create(Pembelian pmb)
+        public int Create (Pembelian pmb)
         {
             int result = 0;
 
             // kode pembelian wajib diisi
-            if (string.IsNullOrEmpty(pmb.KdPembelian))
+            if(string.IsNullOrEmpty(pmb.KdPembelian))
             {
                 MessageBox.Show("Kode pembelian harus diisi !!!", "Peringatan",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -29,7 +29,7 @@ namespace Transaksi_PreOrder.Controller
             }
 
             // nama barang wajib diisi
-            if (string.IsNullOrEmpty(pmb.NamaBarang))
+            if(string.IsNullOrEmpty(pmb.NamaBarang))
             {
                 MessageBox.Show("Nama barang haru diisi !!!", "Peringatan",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -37,7 +37,7 @@ namespace Transaksi_PreOrder.Controller
             }
 
             // Harga pembelian wajib diisi
-            if (string.IsNullOrEmpty(Convert.ToString(pmb.HargaBeli)))
+            if(string.IsNullOrEmpty(Convert.ToString(pmb.HargaBeli)))
             {
                 MessageBox.Show("Harga harus diisi !!!", "Peringatan",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -86,7 +86,7 @@ namespace Transaksi_PreOrder.Controller
                 result = _repository.Create(pmb);
             }
 
-            if (result > 0)
+            if(result > 0)
             {
                 MessageBox.Show("Data pembelian berhasil disimpan !!!", "Peringatan",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
